@@ -3,241 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/byx7akp.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <title>Sabrina's Music</title>
-    <script>
-      function checkPassword() {
-        
-        const correctPassword = "Dreamstate"; // Set your password here
-        let userInput;
-
-        while (true) {
-          userInput = prompt("Enter the password:");
-       
-          if (userInput === correctPassword) {
-            document.querySelector(".container").style.display = "flex"; // Redirect on success
-            break;
-          } else if (userInput === null) {
-            alert("Access denied! Closing page.");
-            window.close(); // Close the page if the user cancels
-            break;
-          } else {
-            alert("Incorrect password. Try again.");
-          }
-        }
-      }
-
-      let currentAudio = null; // Track currently playing audio
-
-      function playAudio(audioId) {
-        let newAudio = document.getElementById(audioId);
-
-        // Stop and reset any currently playing audio
-        if (currentAudio && currentAudio !== newAudio) {
-          currentAudio.pause();
-          currentAudio.currentTime = 0; // Reset to beginning
-        }
-
-        // Play new audio
-        newAudio.play();
-        currentAudio = newAudio;
-
-        console.log("Playing:", audioId);
-      }
-    </script>
-    <style>
-      body {
-        background-color: rgb(215, 221, 225);
-        margin: 0;
-        box-sizing: border-box;
-      }
-      h1 {
-        margin-bottom: 1.25vh;
-        margin-top: 0;
-      }
-
-      p {
-        margin-top: 1.25vh;
-      }
-
-      .container {
-        position: relative;
-        background: url(.//images/bg.jpg) no-repeat;
-        background-position: bottom center;
-        background-size: cover;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 6vh 4vh 2vh; 
-        height: 100vh;
-        box-sizing: border-box;
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow: hidden;
-
-      }
-
-      .bg-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-      }
-
-      .item-wrapper {
-        display: flex;
-        display: -webkit-flex;
-        flex-wrap: wrap;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-direction: row;
-        -webkit-flex-direction: row;
-            -ms-flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .item {
-        width: 50%;
-        font-family: "adobe-handwriting-tiffany", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        display: inline-block;
-        text-align: left;
-        margin-bottom: 2.5vh;
-      }
-
-      .item:last-child {
-        margin-bottom: 0;
-      }
-
-      .title {
-        color: rgb(255, 244, 184);
-        font-size: 4vh;
-        font-weight: 300;
-        text-align: center;
-        text-shadow: -2px 0 rgb(160, 151, 112), 0 2px rgb(160, 151, 112),
-          2px 0 rgb(160, 151, 112), 0 -2px rgb(160, 151, 112);
-      }
-
-      .subtitle {
-        color: rgb(255, 244, 184);
-        text-shadow: -1px 0 rgb(27, 14, 11), 0 1px rgb(27, 14, 11),
-          1px 0 rgb(27, 14, 11), 0 -1px rgb(27, 14, 11);
-        text-align: center;
-        font-size: 2.7vh;
-        margin-bottom: 4vh;
-      }
-
-      .listitem {
-        display: block;
-        text-decoration: none;
-        text-align: center;
-        font-size: 3.7vh;
-        color: rgb(215, 221, 225);
-      }
-
-      .listitem:hover {
-        color: #ffffff;
-        cursor: pointer;
-      }
-
-      .gmail {
-        font-size: 3.2vh;
-        font-family: sans-serif;
-        color: rgb(255, 244, 184);
-        text-decoration: none;
-        margin-left: 20px;
-      }
-
-      
-
-      .sign {
-        position: absolute;
-        right: 20px;
-        bottom: 3vh;
-        transform: rotate(-30deg);
-        font-size: 4.8vh;
-        font-family: "adobe-handwriting-ernie", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        line-height: 1.2;
-        color: rgb(255, 244, 184);
-      }
-
-      @media(max-height: 801px) {
-        .subtitle {
-          font-size: 3vh;
-        }
-      }
-
-      @media(max-width: 980px) {
-        .container {
-          background-position: bottom right -140px;
-          height: 100%;
-        }
-
-        .item-wrapper {
-          justify-content: center;
-        }
-
-        .item {
-          width: 100%;
-        }
-
-        .subtitle {
-          text-align: center;
-        }
-
-        .gmail {
-          margin-top: 20vh;
-          margin-left: 0;
-          text-align: center;
-        }
-
-        .sign {
-          bottom: 13vh;
-          left: 50%;
-          transform: translateX(-50%) rotate(-30deg);
-          width: fit-content;
-        }
-      }
-
-      @media(max-width: 600px) {
-        .container {
-          background-position: bottom right -240px;
-        }
-      }
-
-      @media only screen and (max-width: 576px) {
-        .container {
-          padding: 4vh 2.2vh 2vh;
-        }
-
-        .title {
-          font-size: 3.2vh;
-        }
-
-        .listitem {
-          font-size: 2.8vh;
-          margin: 10px 0;
-        }
-
-        .gmail {
-          font-size: 2vh;
-        }
-
-        .sign {
-          bottom: 10vh;
-        }
-
-      }
-    </style>
+    <script src="./js/script.js"></script>
   </head>
 
   <body onload="checkPassword()">
@@ -247,15 +20,11 @@
           <h1 class="title">"PolyFuck"</h1>
           <p class="subtitle">Indie rock-pop, driving bass, high energy</p>
 
-          <a href="#" onclick="playAudio('audio1')" class="listitem">
+          <a href="#" class="listitem" tabindex="0" data-audio-id="audio1">
             Full Track
           </a>
-          <a href="#" onclick="playAudio('audio2')" class="listitem">
-            Vocals
-          </a>
-          <a href="#" onclick="playAudio('audio3')" class="listitem">
-            Instrumental
-          </a>
+          <a href="#" class="listitem" data-audio-id="audio2"> Vocals </a>
+          <a href="#" class="listitem" data-audio-id="audio3"> Instrumental </a>
 
           <audio id="audio1">
             <source src="songs/PolyFuck_Master.wav" type="audio/wav" />
@@ -278,15 +47,11 @@
             Chaplin-esque, melancholic, elegant, and timeless
           </p>
 
-          <a href="#" onclick="playAudio('audio4')" class="listitem">
+          <a href="#" class="listitem" tabindex="0" data-audio-id="audio4">
             Full Track
           </a>
-          <a href="#" onclick="playAudio('audio5')" class="listitem">
-            Vocals
-          </a>
-          <a href="#" onclick="playAudio('audio6')" class="listitem">
-            Instrumental
-          </a>
+          <a href="#" class="listitem" data-audio-id="audio5"> Vocals </a>
+          <a href="#" class="listitem" data-audio-id="audio6"> Instrumental </a>
 
           <audio id="audio4">
             <source src="songs/Hey You_01.mp3" type="audio/mp3" />
@@ -302,17 +67,27 @@
         </div>
 
         <div class="item">
-          <h1 class="title">"Hello,comment vas-tu?"</h1>
+          <h1 class="title">
+            "Hello,comment vas-tu?"
+            <a
+              class="instagram-link"
+              href="https://www.instagram.com/therealblurum13?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            >
+              BluRum13
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37a4 4 0 1 1-4.73-4.73 4 4 0 0 1 4.73 4.73z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </h1>
+
           <p class="subtitle">Smooth indie pop-rock, percussive and alluring</p>
-          <a href="#" onclick="playAudio('audio7')" class="listitem">
+          <a href="#" class="listitem" tabindex="0" data-audio-id="audio7">
             Full Track
           </a>
-          <a href="#" onclick="playAudio('audio8')" class="listitem">
-            Vocals
-          </a>
-          <a href="#" onclick="playAudio('audio9')" class="listitem">
-            Instrumental
-          </a>
+          <a href="#" class="listitem" data-audio-id="audio8"> Vocals </a>
+          <a href="#" class="listitem" data-audio-id="audio9"> Instrumental </a>
 
           <audio id="audio7">
             <source src="songs/Hello_11.wav" type="audio/wav" />
@@ -331,14 +106,35 @@
         </div>
       </div>
 
+      <!-- Audio Controls -->
+      <div id="audioControls" class="audio-controls">
+        <div class="circular-player">
+          <div class="progress-circle"></div>
+          <button id="playPauseBtn" aria-label="Play/Pause">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="close-btn" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer -->
       <div class="gmail">
-        <a style="color: rgb(255, 244, 184); text-decoration: none;" onmouseover = "this.style.color ='white'" onmouseout="this.style.color='rgb(255, 244, 184)'"
+        <a
+          style="color: rgb(255, 244, 184); text-decoration: none"
+          onmouseover="this.style.color ='white'"
+          onmouseout="this.style.color='rgb(255, 244, 184)'"
           href="mailto:Kingcruiser-musicvault@gmail.com"
-          >Kingcruiser-musicvault@gmail.com</a>
+          >Kingcruiser-musicvault@gmail.com</a
+        >
       </div>
 
       <div class="sign">
-        <p style="margin: 0;">King<br> Cruiser.</p>
+        <p style="margin: 0">
+          King<br />
+          Cruiser.
+        </p>
       </div>
     </div>
   </body>
